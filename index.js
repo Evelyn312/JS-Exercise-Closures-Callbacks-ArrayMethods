@@ -346,11 +346,11 @@ function tallyUpDonations(runners) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *  -The counter1 has variable declared inside the function.  Counter2 the variable is outside in the global scope. 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ *  -Counter 1 uses closure because the variable is inside and cannot be easily change.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *  -Counter1 is preferable when you don't want it to be easily change.  Counter2 is preferable you want to allow easy access.
 */
 
 // counter1 code
@@ -391,9 +391,19 @@ function counter2() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(maxValue) {
+  let count = -1;
+  return function counter() {
+    count++;
+    if (count > maxValue) {
+      count = 0;
+    }
+    return count;
+  }
 }
+
+const counter = counterMakerWithLimit(3);
+counter();
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
