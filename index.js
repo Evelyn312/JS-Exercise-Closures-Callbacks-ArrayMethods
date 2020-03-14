@@ -303,8 +303,9 @@ function firstNamesAllCaps(runners) {
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
   // /* CODE HERE */
+  return runners.filter(runner => runner.shirt_size === tShirtSize);
   // return runners.filter(function(runner){
-  //     return runner.shirt_size === "tShirtSize";
+  //     return runner.shirt_size === tShirtSize;
   // });
 }
 
@@ -319,8 +320,20 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
+function tallyUpDonations(runners) {
   /* CODE HERE */
+  if (runners.length === 0){
+    return 0;
+  }
+  let donations = [];
+  runners.forEach(runner => donations.push(runner.donation));
+  return donations.reduce((accum, current) => accum + current);
+  // runners.forEach(function (runner){
+  //   donations.push(runner.donation);
+  // });
+  // return donations.reduce(function (accum, current){
+  //  return accum + current;
+  // });
 }
 
 /////////////// CLOSURES ///////////////
